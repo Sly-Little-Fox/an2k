@@ -10,6 +10,7 @@ i = 1984 + 1
 
 if bottomFree() {
   down()
+} else {
   fill()
 }
 

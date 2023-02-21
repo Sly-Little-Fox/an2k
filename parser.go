@@ -17,7 +17,11 @@ func ConvertStmt(st ast.Stmt, v *[]string) string {
 			return ConvertStmt(s, v)
 		}).([]string), "")
 	case *ast.IfStmt:
-		return ConditionIf(ConvertExpr(st.If)) + "\n" + ConvertStmt(st.Then, v) + ConditionEnd
+		thing := ConditionIf(ConvertExpr(st.If)) + "\n" + ConvertStmt(st.Then, v)
+		if st.Else != nil {
+			thing += "иначе\n" + ConvertStmt(st.Else, v) + "\n"
+		}
+		return thing + ConditionEnd
 	case *ast.LoopStmt:
 		if st.Stmt == nil {
 			return ""
