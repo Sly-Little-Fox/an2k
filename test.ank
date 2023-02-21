@@ -1,0 +1,30 @@
+use("robot")
+
+
+str = "The meaning of life" 
+i = 42
+
+// no
+i = 1984 + 1
+
+
+if bottomFree() {
+  down()
+  fill()
+}
+
+// should be ignored
+for 6 times {}
+
+for 5 times {
+  right()
+}
+
+for topFree() {
+  up()
+}
+
+for (1 + 2) * 2 times {
+  left()
+}
+
